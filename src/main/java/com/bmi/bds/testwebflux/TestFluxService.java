@@ -27,7 +27,7 @@ public class TestFluxService {
         log.info("result ----> {}", resultMap);
 
         ModelMapper modelMapper = new ModelMapper();
-        CommonResponse<?> response = modelMapper.map(resultMap, CommonResponse.class);
+        CommonResponse response = modelMapper.map(resultMap, CommonResponse.class);
         log.info("only result ----> {}", writeToString(response.getResult()));
 
         log.info("end call api");
