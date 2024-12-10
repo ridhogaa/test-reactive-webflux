@@ -2,6 +2,7 @@ package com.bmi.bds.testwebflux;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -11,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -38,7 +40,7 @@ public class PostRestClientReactive {
                 })
                 .bodyValue(req)
                 .retrieve()
-                .bodyToMono(Object.class)
+                .bodyToMono(new ParameterizedTypeReference<>() {})
                 .map(body -> {
                     Map<String, Object> resultMap = new HashMap<>();
                     resultMap.put("responseCode", "200");
