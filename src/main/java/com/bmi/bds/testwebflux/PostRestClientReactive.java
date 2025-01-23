@@ -38,7 +38,6 @@ public class PostRestClientReactive {
                     httpHeaders.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
                     httpHeaders.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
                 })
-                .bodyValue(req)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<>() {})
                 .map(body -> {
